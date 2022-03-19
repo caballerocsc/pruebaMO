@@ -17,7 +17,18 @@ public class Arbol {
 
 	}
 
-	 /**
+	
+	public Nodo getRaiz() {
+		return raiz;
+	}
+
+
+	public void setRaiz(Nodo raiz) {
+		this.raiz = raiz;
+	}
+
+
+	/**
      * 
      * @param dato valor que contendrá el nodo que sera agregado al arbol
      * el metodo valida que el nodo raiz sea valido, si no existe crea uno nuevo nodo raiz y le asigna el valor

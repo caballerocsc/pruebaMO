@@ -5,7 +5,7 @@ package com.cesarsolau.pruebaMO.entity;
  *Clase que compone la estructura minima de un arbol balanceado, el nodo y que permite conectarse 
  *a otros nodos descendientes por derecha o izquierda
  */
-class Nodo {
+public class Nodo {
 	private int dato;
 	private Nodo izquierda, derecha;
 
