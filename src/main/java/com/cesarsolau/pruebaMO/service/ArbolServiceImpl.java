@@ -14,11 +14,15 @@ public class ArbolServiceImpl implements ArbolService{
 	//private ArbolDAO arbolDAO;
 
 	@Override
-	public List<Integer> crearArbol() {
+	public List<Integer> crearArbol(int nodos) {
 		ArbolDAO arbolDAO = new ArbolDAOImpl();
-		return arbolDAO.crearArbol();
+		return arbolDAO.crearArbol(nodos);
 	}
 	
-	
-
+	@Override
+	public int crearArbolArray(List<Integer> lista) {
+		ArbolDAO arbolDAO = new ArbolDAOImpl();
+		int lca =arbolDAO.ancetroMenor(arbolDAO.crearArbolArray(lista).getRaiz(), 32, 40); 
+		return lca;
+	}
 }

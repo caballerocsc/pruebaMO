@@ -2,6 +2,7 @@ package com.cesarsolau.pruebaMO.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.cesarsolau.pruebaMO.entity.Arbol;
 import com.cesarsolau.pruebaMO.entity.Nodo;
@@ -9,13 +10,12 @@ import com.cesarsolau.pruebaMO.entity.Nodo;
 public class ArbolDAOImpl implements ArbolDAO{
 	
 	@Override
-	public List<Integer> crearArbol(){
+	public List<Integer> crearArbol(int nodos){
 		Arbol arbol = new Arbol();
-        arbol.insertar(1);
-        arbol.insertar(2);
-        arbol.insertar(3);
-        arbol.insertar(4);
-        arbol.insertar(0);
+		Random r = new Random(System.currentTimeMillis());
+		for (int i = 0; i < nodos; i++) {
+			arbol.insertar(r.nextInt(100));
+		}
         return imprimir(arbol.getRaiz(),new ArrayList<Integer>());
 		 
 	}
@@ -29,5 +29,27 @@ public class ArbolDAOImpl implements ArbolDAO{
         }
         return valores;
     }
+	
+	@Override
+	public int ancetroMenor(Nodo raiz,int nodo1, int nodo2 ) {
+		int actual = raiz.getDato();
+		if(nodo1<=actual && nodo2>=actual)
+			return actual;
+		else
+			if(nodo1>actual && nodo2>actual)
+				ancetroMenor(raiz.getDerecha(),nodo1,nodo2);
+			else 
+				ancetroMenor(raiz.getIzquierda(), nodo1, nodo2);
+		return 0;
+	}
+	
+	@Override
+	public Arbol crearArbolArray(List<Integer> lista) {
+		Arbol arbol = new Arbol();
+		for (Integer i : lista) {
+			arbol.insertar(i);
+		}
+		return arbol;
+	}
 
 }
