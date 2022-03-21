@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.cesarsolau.pruebaMO.dao.ArbolDAO;
 import com.cesarsolau.pruebaMO.dao.ArbolDAOImpl;
+import com.cesarsolau.pruebaMO.model.LCA;
 
 @Service
 public class ArbolServiceImpl implements ArbolService{
@@ -20,9 +21,9 @@ public class ArbolServiceImpl implements ArbolService{
 	}
 	
 	@Override
-	public int crearArbolArray(List<Integer> lista) {
+	public int encontrarLCA(LCA obj) {
 		ArbolDAO arbolDAO = new ArbolDAOImpl();
-		int lca =arbolDAO.ancetroMenor(arbolDAO.crearArbolArray(lista).getRaiz(), 24, 40); 
+		int lca =arbolDAO.ancetroMenor(arbolDAO.crearArbolArray(obj.getNodos()).getRaiz(), obj.getNodo1(), obj.getNodo2()); 
 		return lca;
 	}
 }
