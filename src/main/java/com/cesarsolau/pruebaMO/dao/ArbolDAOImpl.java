@@ -37,10 +37,9 @@ public class ArbolDAOImpl implements ArbolDAO{
 			return actual;
 		else
 			if(nodo1>actual && nodo2>actual)
-				ancetroMenor(raiz.getDerecha(),nodo1,nodo2);
+				return ancetroMenor(raiz.getDerecha(),nodo1,nodo2);
 			else 
-				ancetroMenor(raiz.getIzquierda(), nodo1, nodo2);
-		return 0;
+				return ancetroMenor(raiz.getIzquierda(), nodo1, nodo2);
 	}
 	
 	@Override

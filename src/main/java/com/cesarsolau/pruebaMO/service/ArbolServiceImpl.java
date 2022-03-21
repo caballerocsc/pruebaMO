@@ -22,7 +22,7 @@ public class ArbolServiceImpl implements ArbolService{
 	@Override
 	public int crearArbolArray(List<Integer> lista) {
 		ArbolDAO arbolDAO = new ArbolDAOImpl();
-		int lca =arbolDAO.ancetroMenor(arbolDAO.crearArbolArray(lista).getRaiz(), 32, 40); 
+		int lca =arbolDAO.ancetroMenor(arbolDAO.crearArbolArray(lista).getRaiz(), 24, 40); 
 		return lca;
 	}
 }
